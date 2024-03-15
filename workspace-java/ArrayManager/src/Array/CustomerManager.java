@@ -89,27 +89,53 @@ static final int MAX = 100;
 		}
 
 	}//end main
-
-	private static void deleteCustomer() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private static void updateCustomer() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private static void printCustomer() {
-		// TODO Auto-generated method stub
-		
-	}
-
 	private static void insertCustomer() {
-		// TODO Auto-generated method stub
+		System.out.print("이름:");
+		String name = sc.next();
+		System.out.print("성별(M/F):");
+		char gender = sc.next().charAt(0);
+		System.out.print("이메일:");
+		String email = sc.next();
+		System.out.print("출생 연도:");
+		int birthYear = sc.nextInt();
 		
+		nameList[count] = name;
+		genderList[count] = gender;
+		emailList[count] = email;
+		birthYearList[count] = birthYear;
+		count++;
 	}
-		
 	
+	private static void printCustomer() {
+		System.out.println("============CUSTOMER INFO==============");
+		System.out.println("이름: " + nameList[index]);
+		System.out.println("성별: " + genderList[index]);
+		System.out.println("이메일: " + emailList[index]);
+		System.out.println("출생 연도: " + birthYearList[index]);
+	}
+	
+	private static void updateCustomer() {
+		System.out.println("-------------UPDATE CUSTOMER INFO-------------");
+		System.out.print("이름(" + nameList[index] + "): ");
+		nameList[index] = sc.next();
+		System.out.print("성별(" + genderList[index] + "): ");
+		genderList[index] = sc.next().charAt(0);
+		System.out.print("이메일(" + emailList[index] + "): ");
+		emailList[index] = sc.next();
+		System.out.print("출생 연도(" + birthYearList[index] + "): ");
+		birthYearList[index] = sc.nextInt();
+	}
+	
+	private static void deleteCustomer() {
+		for(int i=index; i<count-1; i++) {
+			nameList[i] = nameList[i+1];
+			genderList[i] = genderList[i+1];
+			emailList[i] = emailList[i+1];
+			birthYearList[i] = birthYearList[i+1];
+		}
+		count--;
+	}
 
 }
+
+
